@@ -52,7 +52,7 @@ public class OrderDetailController {
     public ResponseEntity<ResponseMessage> createOrderDetail(@RequestBody OrderDetailDTO orderDetailDTO) {
         User user = userService.findById(orderDetailDTO.getUserId());
         Product product = productService.findById(orderDetailDTO.getProductId());
-        Orders orders = ordersService.getOrdersByDateBuy(user.getId());
+        Orders orders = ordersService.getOrdersByDateBuy(orderDetailDTO.getUserId());
         CartItem cartItem = cartItemService.findByUserAndProduct(user, product).get();
             OrderDetail orderDetail = new OrderDetail();
             orderDetail.setOrders(orders);

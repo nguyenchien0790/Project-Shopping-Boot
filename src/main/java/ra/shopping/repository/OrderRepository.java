@@ -32,4 +32,6 @@ public interface OrderRepository extends JpaRepository<Orders, Long> {
     void setTotal(float total, Long id);
 @Query(value = "select * from Orders where user_Id = ?1 order by id desc limit 1", nativeQuery = true)
     Orders getOrdersByDateBuy(Long id);
+
+
 }
